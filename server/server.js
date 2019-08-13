@@ -7,7 +7,7 @@ io.on('connection', socket => {
     const { microservice } = socket.handshake.query;
     console.log(microservice + ' conectado');
     
-    io.emit('server', {
+    io.to(socket.id).emit('server', {
         'message': 'Conectado com sucesso'
     });
 
